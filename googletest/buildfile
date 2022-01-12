@@ -1,0 +1,24 @@
+if ($cxx.id == 'msvc')
+    cxx.poptions += -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN
+
+if ($cxx.target.class == 'linux')
+{
+    cxx.poptions += "-DGTEST_HAS_PTHREAD=1"
+    cxx.libs += -lpthread
+    lib{gtest}: cxx.export.libs += -lpthread
+}
+
+cxx.poptions += "-I$src_base" "-I$src_base/include"
+
+./: lib{gtest}: src/cxx{gtest-all}
+{
+    cxx.export.poptions += "-I$src_base/include"
+}
+
+./: lib{gtest_main}: src/cxx{gtest_main} lib{gtest}
+{
+    cxx.export.libs += lib{gtest}
+}
+
+{hbmis objs}{*}: cxx.poptions += -DGTEST_CREATE_SHARED_LIBRARY=1
+libs{gtest}: cxx.export.poptions += -DGTEST_LINKED_AS_SHARED_LIBRARY=1
