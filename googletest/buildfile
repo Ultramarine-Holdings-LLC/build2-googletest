@@ -10,7 +10,7 @@ if ($cxx.target.class == 'linux')
 
 cxx.poptions += "-I$src_base" "-I$src_base/include"
 
-./: lib{gtest}: src/cxx{gtest-all} include/hxx{**} src/file{*.cc *.h}
+./: lib{gtest}: src/cxx{gtest-all} include/hxx{**} src/file{*.cc} src/file{*.h}
 {
     cxx.export.poptions += "-I$src_base/include"
 }
