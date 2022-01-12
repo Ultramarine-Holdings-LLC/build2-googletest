@@ -1,0 +1,11 @@
+: 1
+name: googletest
+version: 1.11.0-a.0.z
+summary: GoogleTest - Google Testing and Mocking Framework
+license: BSD-3-Clause
+description-file: upstream/README.md
+url: https://google.github.io/googletest/
+doc-url: https://google.github.io/googletest/
+src-url: https://github.com/google/googletest
+depends: * build2 >= 0.14.0
+depends: * bpkg >= 0.14.0
