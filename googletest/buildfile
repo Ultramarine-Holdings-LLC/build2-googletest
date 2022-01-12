@@ -23,3 +23,9 @@ cxx.poptions += "-I$src_base" "-I$src_base/include"
 
 {hbmis objs}{*}: cxx.poptions += -DGTEST_CREATE_SHARED_LIBRARY=1
 libs{gtest}: cxx.export.poptions += -DGTEST_LINKED_AS_SHARED_LIBRARY=1
+
+include/hxx{*}:
+{
+    install = include/
+    install.subdirs = true
+}
