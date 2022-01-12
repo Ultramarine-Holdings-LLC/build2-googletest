@@ -1,0 +1,6 @@
+import libs = googletest%lib{gtest_main}
+
+cxx.poptions += "-I$src_base"
+
+exe{driver}: test/cxx{gtest_all_test} $libs
+exe{driver}: test.options = --gtest_filter=-OutputFileHelpersTest.GetCurrentExecutableName
