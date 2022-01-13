@@ -15,7 +15,7 @@ cxx.poptions += "-I$src_base" "-I$src_base/include"
     cxx.export.poptions += "-I$src_base/include"
 }
 
-./: liba{gtest_main}: src/cxx{gtest_main} lib{gtest}
+./: lib{gtest_main}: cxx{gtest_main} lib{gtest}
 {
     cxx.export.libs += lib{gtest}
     cxx.export.poptions += "-I$src_base/include"
