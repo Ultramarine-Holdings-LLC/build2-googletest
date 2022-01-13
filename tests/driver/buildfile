@@ -1,4 +1,4 @@
-import libs = googletest%lib{gtest_main}
+import libs = googletest%liba{gtest_main}
 
 cxx.poptions += "-I$src_base"
 
