@@ -1,6 +1,7 @@
 if ($cxx.id == 'msvc')
 {
     cxx.poptions += -D_UNICODE -DUNICODE -DWIN32 -D_WIN32 -DSTRICT -DWIN32_LEAN_AND_MEAN
+    liba{gtest_main}: cxx.export.loptions += /SUBSYSTEM:CONSOLE
 }
 
 if ($cxx.target.class == 'linux')
