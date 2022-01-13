@@ -1,0 +1,5 @@
+: 1
+name: googletest
+version: 1.11.0
+summary: GoogleTest - Google Testing and Mocking Framework
+license: BSD-3-Clause
