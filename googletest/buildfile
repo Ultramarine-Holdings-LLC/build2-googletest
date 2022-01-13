@@ -5,7 +5,7 @@ if ($cxx.target.class == 'linux')
 {
     cxx.poptions += "-DGTEST_HAS_PTHREAD=1"
     cxx.libs += -lpthread
-    lib{gtest gtest_main}: cxx.export.libs += -lpthread
+    lib{gtest}: cxx.export.libs += -lpthread
 }
 
 cxx.poptions += "-I$src_base" "-I$src_base/include"
