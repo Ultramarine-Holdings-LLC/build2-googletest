@@ -15,11 +15,7 @@ cxx.poptions += "-I$src_base" "-I$src_base/include"
     cxx.export.poptions += "-I$src_base/include"
 }
 
-./: lib{gtest_main}: libul{gtest_main}: cxx{gtest_main} lib{gtest}
-lib{gtest_main}: def{gtest_main}: include = ($cxx.target.system == 'win32-msvc')
-def{gtest_main}: libul{gtest_main}
-
-lib{gtest_main}:
+./: liba{gtest_main}: cxx{gtest_main} lib{gtest}
 {
     cxx.export.libs += lib{gtest}
     cxx.export.poptions += "-I$src_base/include"
