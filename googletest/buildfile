@@ -4,7 +4,7 @@ if ($cxx.id == 'msvc')
     liba{gtest_main}: cxx.export.loptions += /SUBSYSTEM:CONSOLE
 }
 
-if ($cxx.target.class == 'linux')
+if ($cxx.target.class != 'windows')
 {
     cxx.poptions += "-DGTEST_HAS_PTHREAD=1"
     cxx.libs += -lpthread
@@ -23,6 +23,8 @@ cxx.poptions += "-I$src_base" "-I$src_base/include"
     cxx.export.libs += lib{gtest}
     cxx.export.poptions += "-I$src_base/include"
 }
+
+liba{gtest_main}: bin.whole = true
 
 {hbmis objs}{*}: cxx.poptions += -DGTEST_CREATE_SHARED_LIBRARY=1
 libs{gtest}: cxx.export.poptions += -DGTEST_LINKED_AS_SHARED_LIBRARY=1
